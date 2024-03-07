@@ -1,8 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Mathematics;
-using UnityEditor;
 using UnityEngine;
 
 public class LookAround : MonoBehaviour
@@ -11,8 +7,6 @@ public class LookAround : MonoBehaviour
     public float mouseSensivity = 500f;
 
     public Transform Player;
-
-
 
 
     float xRotation = 0f;
