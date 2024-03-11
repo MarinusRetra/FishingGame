@@ -17,7 +17,8 @@ public class Interactor : MonoBehaviour
     private Coroutine interactionCoroutine;
     public Canvas Canvass;
 
-
+    [HideInInspector]
+    public bool isHovering = false;
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
@@ -57,6 +58,7 @@ public class Interactor : MonoBehaviour
             {
                 if (hitInfo.collider.gameObject.TryGetComponent(out IInteractable interactObj))
                 {
+                    isHovering = true;
                     interactionText.text = interactObj.GetInteractionText();
                     Vector3 direction = hitInfo.point - transform.position;
                     Canvass.transform.position = hitInfo.point - direction.normalized * Vector3.Distance(transform.position, hitInfo.point) / 2;
@@ -66,11 +68,15 @@ public class Interactor : MonoBehaviour
                 else
                 {
                     interactionText.gameObject.SetActive(false);
+                    isHovering = false;
+
                 }
             }
             else
             {
                 interactionText.gameObject.SetActive(false);
+                isHovering = false;
+
             }
         }
         else 
