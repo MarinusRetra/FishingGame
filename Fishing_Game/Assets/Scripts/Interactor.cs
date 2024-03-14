@@ -5,7 +5,7 @@ using TMPro;
 interface IInteractable
 {
     void Interact();
-    string GetInteractionText(); // Add a method to get the interaction text
+    string GetInteractionText();
 }
 
 public class Interactor : MonoBehaviour
@@ -32,7 +32,7 @@ public class Interactor : MonoBehaviour
         UpdateUI(); // is alleen een functie om de update leesbaar te houden
     }
 
-    IEnumerator WaitAndInteract(float waitTime)
+    IEnumerator WaitAndInteract(float waitTime) // forceerd in kleine cooldown voor interaction
     {
         isWaiting = true;
 
@@ -49,7 +49,7 @@ public class Interactor : MonoBehaviour
         isWaiting = false;
     }
 
-    void UpdateUI()
+    void UpdateUI() // Laar de interaction tekst zien van het geraakte interactable object
     {
         if (interactionText != null)
         {
