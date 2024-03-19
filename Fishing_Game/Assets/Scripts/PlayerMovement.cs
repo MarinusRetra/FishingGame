@@ -63,7 +63,6 @@ public class PlayerMovement : MonoBehaviour
         if (coyoteTimeCount > 0f && Input.GetAxis("Jump") > 0)
         {
             velocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravity);
-
             coyoteTimeCount = 0f;
         }
 
