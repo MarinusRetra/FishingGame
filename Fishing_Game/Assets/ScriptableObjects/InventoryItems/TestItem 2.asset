@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b6b6d230eefdc149b3f1a72d4b0d605, type: 3}
   m_Name: TestItem 2
   m_EditorClassIdentifier: 
-  ID: 999
+  ID: 0
   DisplayName: TestItem2
-  Description: Test item less epic
+  Description: 
   Icon: {fileID: 0}
   MaxStackSize: 1

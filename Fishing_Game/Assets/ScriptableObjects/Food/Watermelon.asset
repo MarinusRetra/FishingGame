@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FoodItem
   ID: 1
   DisplayName: Watermelon
-  Description: Shiny like a bald man's head.
+  Description: Shiny, like a bald man's head.
   Icon: {fileID: 0}
   MaxStackSize: 10
   FoodAmount: 100
