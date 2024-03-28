@@ -3,24 +3,23 @@ using UnityEngine;
 
 public class PickupInteractable : MonoBehaviour, IInteractable
 {
-
+    public InventoryItemData itemData;
+    public InventoryHolder  playerInventoryHolder;
     void Start()
     { 
-        InventoryHolder playerInventoryHolder = GameObject.Find("Player").GetComponent<InventoryHolder>();
-
+      //  playerInventoryHolder = GameObject.Find("Player").GetComponent<InventoryHolder>();
     }
 
     public void Interact()
     {
-        Destroy(gameObject);
+        if (playerInventoryHolder.InventorySystem.AddToInventory(itemData, 1))
+        {
+            Destroy(gameObject);
+        }
     }
     public string GetInteractionText()
     {
-        return "'E'";
+        return $"{itemData.DisplayName}";
     }
 
-    private void OnDestroy()
-    {
-        // hier komt add invetory logic
-    }
 }

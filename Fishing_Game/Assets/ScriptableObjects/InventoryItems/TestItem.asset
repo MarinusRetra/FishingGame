@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b6b6d230eefdc149b3f1a72d4b0d605, type: 3}
   m_Name: TestItem
   m_EditorClassIdentifier: 
-  ID: 0
+  ID: 998
   DisplayName: TestItem1
   Description: Test item epic
   Icon: {fileID: 0}

@@ -9,8 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85d88afe77d764b48b6d92a2daaefc4e, type: 3}
-  m_Name: Apple
+  m_Script: {fileID: 11500000, guid: 7b6b6d230eefdc149b3f1a72d4b0d605, type: 3}
+  m_Name: Wood
   m_EditorClassIdentifier: 
-  FoodAmount: 80
-  WaterAmount: 50
+  ID: 301
+  DisplayName: Wood
+  Description: This. Is. Wood
+  Icon: {fileID: 0}
+  MaxStackSize: 1000

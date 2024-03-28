@@ -1,10 +1,16 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NoPickupInteractable : MonoBehaviour, IInteractable
 {
     public string AnimationClipName;
+    public string AnimationClipName2;
     float animationTime;
+    float animationTime2;
+
+    bool toggle = true;
+
     Animator animator;
 
     void Start()
@@ -23,12 +29,35 @@ public class NoPickupInteractable : MonoBehaviour, IInteractable
                 break;
             }
         }
+
+        if (AnimationClipName2 != "")
+        {
+            foreach (AnimationClip clip in animationClips)
+            {
+                if (clip.name == AnimationClipName2) // dit werkt als de clip dezelfde naam heeft als de AnimationInteractable
+                {
+                    animationTime2 = clip.length;
+                    break;
+                }
+            }
+        }
     }
 
     public void Interact()
     {
-        animator.Play(AnimationClipName); // speelt de animatie die match met AnimationClipName
-        StartCoroutine(WaitAndDisable());
+        if (toggle)
+        {
+        animator.Play(AnimationClipName); // speelt de animatie die matcht met AnimationClipName
+        }
+        else 
+        {
+            animator.Play(AnimationClipName2);
+        }
+
+        if (AnimationClipName2 != "") // toggled alleen als AnimarionClipName2 een waarde heeft
+        {
+           toggle = !toggle;
+        }
     }
 
     private IEnumerator WaitAndDisable()
@@ -38,6 +67,6 @@ public class NoPickupInteractable : MonoBehaviour, IInteractable
 
     public string GetInteractionText()
     {
-        return "'E'";
+        return toggle ?  "Open" : "Close";
     }
 }

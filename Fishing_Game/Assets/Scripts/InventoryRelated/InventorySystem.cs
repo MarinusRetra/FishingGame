@@ -15,7 +15,7 @@ public class InventorySystem
     }
     public int InventorySize 
     { // Aantal inventory slots
-        get { return InventorySlots.Count; }
+        get { return inventorySlots.Count; }
     }
 
     public UnityAction<InventorySlot> OnInventorySlotChanged;
@@ -30,9 +30,9 @@ public class InventorySystem
 
     }
 
-    public bool AddToInvetory(InventoryItemData itemIn, int amountOfItem)
+    public bool AddToInventory(InventoryItemData itemIn, int amountOfItem)
     {
-        InventorySlots[0] = new InventorySlot(itemIn, amountOfItem);
+        inventorySlots[0] = new InventorySlot(itemIn, amountOfItem);
         return true; 
     }
 

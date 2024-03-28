@@ -13,3 +13,10 @@ public class InventoryItemData : ScriptableObject
     public Sprite Icon;
     public int MaxStackSize;
 }
+
+[CreateAssetMenu(menuName = "InventorySystem/FoodItem")]
+public class FoodItem : InventoryItemData
+{
+    public int FoodAmount;
+    public int WaterAmount;
+}
