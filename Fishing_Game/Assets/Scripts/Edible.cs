@@ -26,15 +26,15 @@ public class Edible : MonoBehaviour, IInteractable
     }
 
     public void Interact()
-    {
+    { 
         animator.Play(foodValues.name); // speelt de animatie die match met de naam van het FoodType scriptable object
         StartCoroutine(WaitAndDisable());
     }
 
     private IEnumerator WaitAndDisable()
     {
-        yield return new WaitForSeconds(animationTime); // verwijderd het object nadat de animatie klaar is
-        Destroy(gameObject);
+        yield return new WaitForSeconds(animationTime); 
+        Destroy(gameObject); // verwijderd het object nadat de animatie klaar is
     }
 
     public string GetInteractionText()

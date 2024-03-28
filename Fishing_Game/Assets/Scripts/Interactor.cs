@@ -23,16 +23,19 @@ public class Interactor : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (!isWaiting)
+            if (!isWaiting) //als hij niet aan het wachten is doe de interaction coroutine
             {
                 interactionCoroutine = StartCoroutine(WaitAndInteract(0.5f));
             }
         }
-
         UpdateUI(); // is alleen een functie om de update leesbaar te houden
     }
-
-    IEnumerator WaitAndInteract(float waitTime) // forceerd in kleine cooldown voor interaction
+    /// <summary>
+    /// Roept Interaction functie op interactObj als isWaiting false is en je naar een interactable object kijkt en op E drukt
+    /// </summary>
+    /// <param name="waitTime">Hoelang je wacht totdat je weer kan interacten met een object</param>
+    /// <returns></returns>
+    IEnumerator WaitAndInteract(float waitTime)
     {
         isWaiting = true;
 
