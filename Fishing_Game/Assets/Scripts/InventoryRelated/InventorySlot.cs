@@ -30,6 +30,11 @@ public class InventorySlot : MonoBehaviour
         ClearSlot();
     }
 
+    public void UpdateInventorySlot(InventoryItemData _ItemDataIn, int _amount)
+    {
+        itemData = _ItemDataIn;
+        stackSize = _amount;
+    }
 
     public void ClearSlot()
     {

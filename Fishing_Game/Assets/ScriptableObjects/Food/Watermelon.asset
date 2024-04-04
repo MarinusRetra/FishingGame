@@ -16,6 +16,6 @@ MonoBehaviour:
   DisplayName: Watermelon
   Description: Shiny, like a bald man's head.
   Icon: {fileID: 0}
-  MaxStackSize: 10
+  MaxStackSize: 2
   FoodAmount: 100
   WaterAmount: 150
