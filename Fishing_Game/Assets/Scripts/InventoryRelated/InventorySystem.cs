@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using System.Linq;
 
-[System.Serializable] // voor saving naar een JSON
+[System.Serializable] // voor saving
 public class InventorySystem
 {
     [SerializeField] private List<InventorySlot> inventorySlots;

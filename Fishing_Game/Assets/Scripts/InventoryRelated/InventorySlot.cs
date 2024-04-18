@@ -4,7 +4,7 @@ using UnityEngine;
 
 [System.Serializable] // nodig voor het opslaan in een JSON
 
-public class InventorySlot : MonoBehaviour
+public class InventorySlot
 {
     [SerializeField] private InventoryItemData itemData; // het scriptable object met alle info over een item
     [SerializeField] private int stackSize; // de huidige stackSize van een item
