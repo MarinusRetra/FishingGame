@@ -3,23 +3,19 @@ using UnityEngine;
 
 public class Crossair : MonoBehaviour
 {
-    GameObject interactionText;
-    // dit hele script zet de crossair uit als je naar een interactable kijkt
-    void Start()
-    {
-       interactionText = GameObject.Find("InteractionText");
-    }
+   public GameObject interactionText;
+   public GameObject Cross;
+    // dit script zet de crossair uit als je naar een interactable kijkt
 
-    // Update is called once per frame
     void Update()
     {
         if (interactionText.activeSelf)
         {
-            gameObject.GetComponent<TextMeshProUGUI>().text = "";
+            Cross.SetActive(false);
         }
         else
-        { 
-            gameObject.GetComponent<TextMeshProUGUI>().text = ".";
+        {
+            Cross.SetActive(true);
         }
     }
 }

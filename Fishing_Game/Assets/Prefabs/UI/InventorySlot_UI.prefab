@@ -107,8 +107,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3134318180135017080}
   - {fileID: 2316034136196584911}
+  - {fileID: 3134318180135017080}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -212,7 +212,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemSprite: {fileID: 7158730831204489482}
   ItemCount: {fileID: 4923213918405208785}
-  assignedInventorySlot: {fileID: 0}
+  assignedInventorySlot:
+    itemData: {fileID: 0}
+    stackSize: -1
 --- !u!1 &9027272410481265543
 GameObject:
   m_ObjectHideFlags: 0

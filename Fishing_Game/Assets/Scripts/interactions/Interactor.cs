@@ -28,7 +28,7 @@ public class Interactor : MonoBehaviour
                 interactionCoroutine = StartCoroutine(WaitAndInteract(0.5f));
             }
         }
-        UpdateUI(); // is alleen een functie om de update leesbaar te houden
+        UpdateUI();
     }
     /// <summary>
     /// Roept Interaction functie op interactObj als isWaiting false is en je naar een interactable object kijkt en op E drukt
@@ -47,6 +47,11 @@ public class Interactor : MonoBehaviour
                 interactObj.Interact();
             }
         }
+        else
+        { 
+            Debug.Log("Raycast be whack");
+        }
+
         yield return new WaitForSeconds(waitTime);
 
         isWaiting = false;
@@ -84,7 +89,7 @@ public class Interactor : MonoBehaviour
         }
         else 
         {
-            Debug.Log("Tektst doet raar");
+            Debug.Log("Tektst is null");
         }
     }
 

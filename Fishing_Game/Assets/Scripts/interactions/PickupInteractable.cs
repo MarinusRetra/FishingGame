@@ -13,21 +13,9 @@ public class PickupInteractable : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        if (playerInventoryHolder.InventorySystem.AddToInventory(itemData, 1))
-        {// print de hele inventaris naar de console omdat ik niet in de inspecter de waardes kan bekijken
-            Debug.Log("Pickup");
+        if (playerInventoryHolder.InventorySystem.AddToInventory(itemData, 2))
+        {
             Destroy(gameObject);
-
-           // foreach (var item in playerInventoryHolder.InventorySystem.InventorySlots) 
-           // {
-           //     if (item.ItemData != null)
-           //     {
-           //         Debug.Log($"{playerInventoryHolder.InventorySystem.InventorySlots.ElementAt(playerInventoryHolder.InventorySystem.InventorySlots.IndexOf(item)).ItemData.DisplayName}");
-           //         Debug.Log($"{playerInventoryHolder.InventorySystem.InventorySlots.ElementAt(playerInventoryHolder.InventorySystem.InventorySlots.IndexOf(item)).ItemData.Description}");
-           //         Debug.Log($"{playerInventoryHolder.InventorySystem.InventorySlots.ElementAt(playerInventoryHolder.InventorySystem.InventorySlots.IndexOf(item)).ItemData.MaxStackSize}");
-           //     }
-           // }
-
         }
     }
     public string GetInteractionText()

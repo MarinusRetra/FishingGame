@@ -35,9 +35,10 @@ public class InventorySystem
         {
             foreach (InventorySlot slot in invSlot)
             {
-                if (slot.RoomLeftInStack(amountOfItem))// als er genoeg ruimte over is in de stack van de current slot voeg item toe aan dat slot  zo niet check volgende slot met matchende item
+                // als er genoeg ruimte over is in de stack van de current slot voeg item toe aan dat slot  zo niet check volgende slot met matchende item
+                if (slot.RoomLeftInStack(amountOfItem))
                 {
-                //voeg hier later toe als 4 items probeert toevoegen aan een slot met 3/5 doe twee in dat slot en ga naar volgende slot met matchende items en doe hetzelfde
+                    //voeg hier later toe code die werkt als volgt: als 4 items probeert toevoegen aan een slot met 3/5 doe twee in dat slot en ga naar volgende slot met matchende items en doe hetzelfde
                     slot.AddToStack(amountOfItem);
                     OnInventorySlotChanged?.Invoke(slot);
                     return true;
@@ -45,7 +46,7 @@ public class InventorySystem
             }
         }
 
-        if (HasFreeSlot(out InventorySlot FreeSlot)) // pakt de eert vrije slot
+        if (HasFreeSlot(out InventorySlot FreeSlot)) // pakt de eeste vrije slot
         {
             FreeSlot.UpdateInventorySlot(itemIn,amountOfItem);
             OnInventorySlotChanged?.Invoke(FreeSlot);
@@ -71,7 +72,7 @@ public class InventorySystem
     public bool HasFreeSlot(out InventorySlot FreeSlot)
     {
         FreeSlot = InventorySlots.FirstOrDefault(i => i.ItemData == null); // pakt de eerste inventory slot die een null waarde heeft
-        return FreeSlot == null ? true : false;
+        return FreeSlot.ItemData == null;
 
     }
 }

@@ -18,7 +18,7 @@ public class StaticInventoryDisplay : InventoryDisplay
         }
         else
         {
-            Debug.LogWarning($"No inventory assigned to {gameObject}");
+            Debug.LogWarning($"No inventory assigned to {this.gameObject}");
         }
 
         AssignSlot(inventorySystem);
@@ -30,7 +30,7 @@ public class StaticInventoryDisplay : InventoryDisplay
 
         if (slots.Length != inventorySystem.InventorySize)
         {
-            Debug.Log($"Inventory slots out of sync: {gameObject}");
+            Debug.Log($"Inventory slots out of sync: {this.gameObject}");
         }
 
         for (int i = 0; i < inventorySystem.InventorySize; i++)
