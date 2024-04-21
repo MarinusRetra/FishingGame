@@ -32,7 +32,18 @@ public abstract class InventoryDisplay : MonoBehaviour
 
     public void SlotClicked(InventorySlot_UI clickedSlot)
     {
-        Debug.Log("Slot Clicked");
+        if (clickedSlot.AssignedInventorySlot .ItemData != null)
+        { 
+           Debug.Log($"Slot Clicked {clickedSlot.AssignedInventorySlot.ItemData.DisplayName}");
+           if (clickedSlot.AssignedInventorySlot.ItemData.GetType() == typeof(FoodItem))
+           {
+               FoodItem eating = (FoodItem)clickedSlot.AssignedInventorySlot.ItemData;
+               FoodSystemPlayer.AddFood(eating.FoodAmount, eating.WaterAmount);
+               clickedSlot.AssignedInventorySlot.ClearSlot();
+               clickedSlot.AssignedInventorySlot.UpdateInventorySlot(clickedSlot.AssignedInventorySlot.ItemData, clickedSlot.AssignedInventorySlot.StackSize);
+               clickedSlot.UpdateUISlot();
+           }
+        }
     }
 
 }

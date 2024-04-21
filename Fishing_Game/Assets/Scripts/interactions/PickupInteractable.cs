@@ -13,7 +13,7 @@ public class PickupInteractable : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        if (playerInventoryHolder.InventorySystem.AddToInventory(itemData, 2))
+        if (playerInventoryHolder.InventorySystem.AddToInventory(itemData, 1))
         {
             Destroy(gameObject);
         }

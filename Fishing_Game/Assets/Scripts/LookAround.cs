@@ -12,8 +12,8 @@ public class LookAround : MonoBehaviour
     float xRotation = 0f;
     void Start()
     {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+     //   Cursor.visible = false;
+     //   Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()
