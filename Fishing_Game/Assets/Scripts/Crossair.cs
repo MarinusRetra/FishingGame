@@ -3,8 +3,7 @@ using UnityEngine;
 
 public class Crossair : MonoBehaviour
 {
-   public GameObject interactionText;
-   public GameObject Cross;
+   public GameObject interactionText, Cross;
     // dit script zet de crossair uit als je naar een interactable kijkt
 
     void Update()
