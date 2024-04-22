@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NoPickupInteractable : MonoBehaviour, IInteractable
+public class DoorInteract : MonoBehaviour, IInteractable
 {
     public string AnimationClipName;
     public string AnimationClipName2;

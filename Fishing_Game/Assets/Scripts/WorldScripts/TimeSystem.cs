@@ -4,9 +4,9 @@ public class TimeSystem : MonoBehaviour
 {
     const int hoursInDay = 24, minutesPerHour = 60; // hoeveel uren in een dag en minuten in een uur
 
-    public float dayDuration = 1200f;// hoeland de dag duurt in seconden
+    public float dayDuration = 1200f;// hoelang de dag duurt in seconden
 
-    float totaltime = 0, currentTime = 0; // totalTime is tijd sinds start TimeSystem, CurrentTime is hoeveel tijd er op een dag is verstreken
+    [SerializeField] float totaltime = 0, currentTime = 0; // totalTime is tijd sinds start TimeSystem, CurrentTime is hoeveel tijd er op een dag is verstreken
 
     GameObject clockText;
     Transform sunTransform; 
@@ -51,6 +51,12 @@ public class TimeSystem : MonoBehaviour
     {
         float rotationAngle = (360f * GetHour()) / hoursInDay;
         sunTransform.rotation = Quaternion.Euler(new Vector3(rotationAngle, 0f, 0f));
+    }
+
+    public void Sleep()
+    {
+        currentTime = 400f;
+        totaltime += 1200f + currentTime;
     }
 
 
