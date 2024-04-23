@@ -8,12 +8,13 @@ public class TimeSystem : MonoBehaviour
 
     [SerializeField] float totaltime = 0, currentTime = 0; // totalTime is tijd sinds start TimeSystem, CurrentTime is hoeveel tijd er op een dag is verstreken
 
-    GameObject clockText;
-    Transform sunTransform; 
+    TextMeshProUGUI clockText; // de string die weergegeven wordt in de PlayerUI
+
+    Transform sunTransform; // gebruikt voor het draaien van de zon op basis van tijd
 
     private void Start()
     {
-        clockText = GameObject.Find("TimeText");
+        clockText = GameObject.Find("TimeText").GetComponent<TextMeshProUGUI>();
         sunTransform = GameObject.Find("Sun").transform;
     }
 
@@ -28,23 +29,34 @@ public class TimeSystem : MonoBehaviour
         {
             totaltime += 100f;
         }
-        clockText.GetComponent<TextMeshProUGUI>().text = Clock24();
-        SetSun();
+        Clock24();
     }
 
     public float GetHour()
     { 
         return currentTime * hoursInDay / dayDuration;
     }
-
     public float GetMinutes()
     {
         return (currentTime * hoursInDay * minutesPerHour / dayDuration) % minutesPerHour;
     }
 
-    public string Clock24()
+    /// <summary>
+    /// Zet de tijd in formaat van een vierentwinteg uur klok
+    /// </summary>
+    public void Clock24()
     {
-        return $"{Mathf.FloorToInt(GetHour()):00}:{Mathf.FloorToInt(GetMinutes()):00} "; //:00 doet hetzelfde als ToString("00")
+        string time = $"{Mathf.FloorToInt(GetHour()):00}:{Mathf.FloorToInt(GetMinutes()):00} "; //:00 doet hetzelfde als ToString("00")
+        SetClock(time);
+    }
+    /// <summary>
+    /// Zet de tijd van de clock op het scherm en draait de zon mee
+    /// </summary>
+    /// <param name="insertTime"></param>
+    public void SetClock(string insertTime)
+    {
+        clockText.text = insertTime;
+        SetSun();
     }
 
     public void SetSun()
@@ -52,11 +64,13 @@ public class TimeSystem : MonoBehaviour
         float rotationAngle = (360f * GetHour()) / hoursInDay;
         sunTransform.rotation = Quaternion.Euler(new Vector3(rotationAngle, 0f, 0f));
     }
-
+    /// <summary>
+    /// Zet de klok 8 uur naarvoren
+    /// </summary>
     public void Sleep()
     {
-        currentTime = 400f;
-        totaltime += 1200f + currentTime;
+        totaltime += 400f;
+        Clock24();
     }
 
 

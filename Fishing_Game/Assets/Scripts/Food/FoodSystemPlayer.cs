@@ -11,12 +11,17 @@ public class FoodSystemPlayer : MonoBehaviour
     {
         ThirstMeter = GameObject.Find("ThirstBar").GetComponent<Slider>();
         HungerMeter = GameObject.Find("HungerBar").GetComponent<Slider>();
-
     }
     void Update()
     {
-        ThirstMeter.value -= Time.deltaTime * HungerMultiplier;
-        HungerMeter.value -= Time.deltaTime * HungerMultiplier;
+        if (ThirstMeter.value < 0)
+        { 
+            ThirstMeter.value -= Time.deltaTime * HungerMultiplier;
+        }
+        if (HungerMeter.value < 0)
+        { 
+            HungerMeter.value -= Time.deltaTime * HungerMultiplier;
+        }
     }
 
     public static void AddFood(int amountFood = 0, int amountWater = 0)
