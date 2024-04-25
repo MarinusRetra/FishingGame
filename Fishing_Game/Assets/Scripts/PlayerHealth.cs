@@ -6,6 +6,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] float health = 100;
     public static Slider HealthMeter;
 
+
     private void Start()
     {
         HealthMeter = GameObject.Find("HealthBar").GetComponent<Slider>();

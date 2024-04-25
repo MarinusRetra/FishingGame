@@ -69,8 +69,10 @@ public class TimeSystem : MonoBehaviour
     /// </summary>
     public void Sleep()
     {
-        totaltime += 400f;
+        totaltime += 1200f;
+        totaltime -= currentTime;
         Clock24();
+        ItemRespawnSystem.RespawnRandomItems();
     }
 
 
