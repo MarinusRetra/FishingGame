@@ -79,4 +79,18 @@ public class InventorySlot
         stackSize -= amount;
     }
 
+    public void AssignItem(InventorySlot invSlot)
+    {
+        if (itemData == invSlot.itemData)
+        {
+            AddToStack(invSlot.stackSize);
+        }
+        else // als het item wat je wilt Assignen anders is dan het slot waarop je dit wilt doen "swap de items"
+        {
+            itemData = invSlot.itemData;
+            stackSize = 0;
+            AddToStack(invSlot.stackSize);
+        }
+    }
+
 }

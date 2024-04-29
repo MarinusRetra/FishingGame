@@ -30,20 +30,45 @@ public abstract class InventoryDisplay : MonoBehaviour
         }
     }
 
-    public void SlotClicked(InventorySlot_UI clickedSlot)
+    public void SlotClicked(InventorySlot_UI clickedUISlot)
     {
-        if (clickedSlot.AssignedInventorySlot .ItemData != null)
-        { 
-           Debug.Log($"Slot Clicked {clickedSlot.AssignedInventorySlot.ItemData.DisplayName}");
-           if (clickedSlot.AssignedInventorySlot.ItemData.GetType() == typeof(FoodItem))
-           {
-               FoodItem eating = (FoodItem)clickedSlot.AssignedInventorySlot.ItemData;
-               FoodSystemPlayer.AddFood(eating.FoodAmount, eating.WaterAmount);
-               clickedSlot.AssignedInventorySlot.ClearSlot();
-               clickedSlot.AssignedInventorySlot.UpdateInventorySlot(clickedSlot.AssignedInventorySlot.ItemData, clickedSlot.AssignedInventorySlot.StackSize);
-               clickedSlot.UpdateUISlot();
-           }
+        // Geklikte slot heeft een item en het mouse object heeft geen item - pak item op 
+        if (clickedUISlot.AssignedInventorySlot.ItemData != null && mouseInventoryItem.AssignedInventorySlot.ItemData == null)
+        {
+            // is de speler shift aan het indrukken - split de stack
+            mouseInventoryItem.UpdateMouseSlot(clickedUISlot.AssignedInventorySlot);
+            clickedUISlot.ClearSlot();
+            Debug.Log("True");
+            return;
         }
-    }
 
+        // Geklikte slot heeft geen item maar mouse object wel plaats mouse object item in slot
+        if (clickedUISlot.AssignedInventorySlot.ItemData == null && mouseInventoryItem.AssignedInventorySlot.ItemData != null)
+        {// dit is nooit true 
+            Debug.Log("dsasadsadsadasd");
+            clickedUISlot.AssignedInventorySlot.AssignItem(mouseInventoryItem.AssignedInventorySlot);
+            clickedUISlot.UpdateUISlot();
+
+            mouseInventoryItem.ClearSlot();
+        }
+
+            // Beide slots hebben een item - check 
+            // Allebei items hetzelfde combineer ze
+            // passen de items in de mouse object op de geselecteerde de stack - pak van mouse object
+
+
+
+                // Beide niet hetzelfde dan wissel je ze
+
+
+                // if (clickedSlot.AssignedInventorySlot.ItemData.GetType() == typeof(FoodItem))
+                // {
+                //     FoodItem eating = (FoodItem)clickedSlot.AssignedInventorySlot.ItemData;
+                //     FoodSystemPlayer.AddFood(eating.FoodAmount, eating.WaterAmount);
+                //     clickedSlot.AssignedInventorySlot.ClearSlot();
+                //     clickedSlot.AssignedInventorySlot.UpdateInventorySlot(clickedSlot.AssignedInventorySlot.ItemData, clickedSlot.AssignedInventorySlot.StackSize);
+                //     clickedSlot.UpdateUISlot();
+                // }
+    }
 }
+

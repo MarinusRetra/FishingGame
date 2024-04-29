@@ -14,11 +14,11 @@ public class FoodSystemPlayer : MonoBehaviour
     }
     void Update()
     {
-        if (ThirstMeter.value < 0)
+        if (ThirstMeter.value > 0)
         { 
             ThirstMeter.value -= Time.deltaTime * HungerMultiplier;
         }
-        if (HungerMeter.value < 0)
+        if (HungerMeter.value > 0)
         { 
             HungerMeter.value -= Time.deltaTime * HungerMultiplier;
         }

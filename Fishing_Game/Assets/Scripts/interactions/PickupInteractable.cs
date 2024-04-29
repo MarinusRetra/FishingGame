@@ -17,7 +17,10 @@ public class PickupInteractable : MonoBehaviour, IInteractable
     {
         if (playerInventoryHolder.InventorySystem.AddToInventory(itemData, 1))
         {
-            HarvestedItems.Add(gameObject);
+            if (itemData.GetType() != typeof(Equipment))
+            { 
+                HarvestedItems.Add(gameObject);
+            }
             gameObject.SetActive(false);
         }
     }

@@ -69,8 +69,8 @@ public class TimeSystem : MonoBehaviour
     /// </summary>
     public void Sleep()
     {
-        totaltime += 1200f;
-        totaltime -= currentTime;
+        Debug.Log(PickupInteractable.HarvestedItems.Count);
+        totaltime += (1200f - currentTime);
         Clock24();
         ItemRespawnSystem.RespawnRandomItems();
     }
